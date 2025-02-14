@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import random
 import time
 
 # 게임 보드 크기
@@ -18,7 +19,7 @@ SHAPES = [
 # 초기화
 if 'board' not in st.session_state:
     st.session_state.board = np.zeros((BOARD_HEIGHT, BOARD_WIDTH), dtype=int)
-    st.session_state.current_shape = np.random.choice(SHAPES)
+    st.session_state.current_shape = random.choice(SHAPES)
     st.session_state.x = BOARD_WIDTH // 2 - 1
     st.session_state.y = 0
 
@@ -52,7 +53,7 @@ def drop():
 
 def restart():
     st.session_state.board = np.zeros((BOARD_HEIGHT, BOARD_WIDTH), dtype=int)
-    st.session_state.current_shape = np.random.choice(SHAPES)
+    st.session_state.current_shape = random.choice(SHAPES)
     st.session_state.x = BOARD_WIDTH // 2 - 1
     st.session_state.y = 0
 
